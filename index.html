@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blessed Day Vertical Magnifier</title>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- GINAWANG ID PARA SA BLINKING AT RANDOM COLORS -->
+    <div class="watermark" id="vanniSignature">Created by Vanni</div>
+
+    <!-- Audio para sa Baptist Hymn -->
+    <audio id="hymnAudio" src="helives.mp3" loop></audio>
+
+    <!-- Pangunahing Background Container -->
+    <div class="background-container">
+        <h1 class="hidden-text blurred">
+            Have<br>
+            a<br>
+            blessed<br>
+            day
+        </h1>
+    </div>
+
+    <!-- Ang modernong pabilog na lens -->
+    <div class="magnifying-lens" id="lens">
+        <h1 class="hidden-text clear" id="clearText">
+            Have<br>
+            a<br>
+            blessed<br>
+            day
+        </h1>
+    </div>
+
+    <div class="instruction">I-drag ang lens para mahanap ang mensahe.<br><strong>I-tap ang lens para sa music</strong></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

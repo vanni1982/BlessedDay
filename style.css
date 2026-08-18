@@ -1,0 +1,135 @@
+:root {
+    --bg-image: url('flower.jpg');
+    --mouse-x: 50vw;
+    --mouse-y: 15vh;
+    --text-left: 0px;
+    --text-top: 0px;
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    touch-action: none; 
+    overscroll-behavior: none; 
+}
+
+body {
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* WATERMARK STYLING SA KALIWA */
+.watermark {
+    position: absolute;
+    top: 20px;          
+    left: 25px;         
+    font-size: 0.85rem;
+    font-weight: 700;   
+    color: rgba(255, 255, 255, 0.65); 
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    z-index: 20;        
+    pointer-events: none;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8); 
+}
+
+/* INFINITE BLINKING AND RANDOM NEON COLOR WAVE (WALANG KATAPUSAN) */
+.watermark.music-playing {
+    animation: vanniInfiniteBlink 1.5s infinite ease-in-out;
+}
+
+@keyframes vanniInfiniteBlink {
+    0% { opacity: 1; color: #ff007f; text-shadow: 0 0 12px #ff007f; }
+    20% { opacity: 0.2; }
+    40% { opacity: 1; color: #00f2fe; text-shadow: 0 0 15px #00f2fe; }
+    60% { opacity: 0.2; }
+    80% { opacity: 1; color: #00ff87; text-shadow: 0 0 12px #00ff87; }
+    100% { opacity: 1; color: #ff00ff; text-shadow: 0 0 15px #ff00ff; }
+}
+
+.background-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 40px;       
+    background: rgba(0, 0, 0, 0.4); 
+    overflow: hidden;
+}
+
+.hidden-text {
+    font-weight: 900; 
+    font-size: 3.5rem; 
+    line-height: 1.2; 
+    text-align: center;
+    pointer-events: none;
+    user-select: none;
+    text-transform: uppercase; 
+    margin-left: -30px; 
+    background: linear-gradient(180deg, #adff2f, #76ff03);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hidden-text.blurred {
+    filter: blur(18px); 
+    opacity: 0.25;
+}
+
+.magnifying-lens {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;      
+    z-index: 10;
+    left: calc(var(--mouse-x) - 110px);
+    top: calc(var(--mouse-y) - 110px);
+    border: 4px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7), inset 0 0 25px rgba(255,255,255,0.3);
+    background-image: var(--bg-image);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh; 
+    background-position: calc(var(--mouse-x) * -1 + 110px) calc(var(--mouse-y) * -1 + 110px);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    padding-top: 40px;       
+    cursor: pointer;
+    touch-action: none;
+}
+
+.hidden-text.clear {
+    position: absolute;
+    filter: blur(0px);
+    background: linear-gradient(180deg, #e1ffb3, #adff2f); 
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    left: var(--text-left);
+    top: var(--text-top);
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.9)); 
+}
+
+.instruction {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 15px;
+    font-size: 13px;
+    z-index: 5;
+    text-align: center;
+    line-height: 1.5;
+    pointer-events: none;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
